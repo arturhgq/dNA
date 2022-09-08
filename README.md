@@ -23,11 +23,23 @@ You can install the development version of dNA like so:
 remotes::install_github("arturhgq/dNA")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## Count NA
 
 ``` r
 library(dNA)
-## basic example code
+count_na(mtcars)
+#> # A tibble: 11 × 2
+#>    variable     n
+#>    <chr>    <int>
+#>  1 mpg          0
+#>  2 cyl          0
+#>  3 disp         0
+#>  4 hp           0
+#>  5 drat         0
+#>  6 wt           0
+#>  7 qsec         0
+#>  8 vs           0
+#>  9 am           0
+#> 10 gear         0
+#> 11 carb         0
 ```

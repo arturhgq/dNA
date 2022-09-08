@@ -1,4 +1,18 @@
-url: ~
+url: http://dNA.arturhgq.com
 template:
   bootstrap: 5
+  bslib:
+    primary: "#660066"
+    bg: "#f8f9f9"
+    fg: "#330033"
+    code-bg: "#d6dcdc"
+    border-radius: 0.5rem
+    btn-border-radius: 0.25rem
+    code_font: {google: "Fira Code"}
+
+reference:
+- title: Count
+  desc:
+  contents:
+  - count_na
 
