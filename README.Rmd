@@ -1,0 +1,39 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# NA
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CRAN status](https://www.r-pkg.org/badges/version/dNA)](https://CRAN.R-project.org/package=dNA)
+[![Codecov test coverage](https://codecov.io/gh/arturhgq/dNA/branch/master/graph/badge.svg)](https://app.codecov.io/gh/arturhgq/dNA?branch=master)
+<!-- badges: end -->
+
+The goal of NA is to provide useful tools for handling Missing Data.
+
+## Installation
+
+You can install the development version of dNA like so:
+
+``` r
+remotes::install_github("arturhgq/dNA")
+```
+
+## Count NA
+
+```{r}
+library(dNA)
+count_na(mtcars)
+```
