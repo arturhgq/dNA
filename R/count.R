@@ -5,7 +5,7 @@
 #' @param .data data frame
 #' @param .format output data frame format ('longer' or 'wider')
 #' @export
-count_na <- \(.data, .format = "longer") {
+count_na <- function(.data, .format = "longer") {
   rlang::expr(
     . |>
       tidyr::pivot_longer(
