@@ -16,6 +16,7 @@ RoxygenNote: 7.2.1
 URL: https://github.com/arturhgq/dNA
 BugReports: https://github.com/arturhgq/dNA/issues
 Imports: 
+    cli,
     dplyr,
     lifecycle,
     purrr,

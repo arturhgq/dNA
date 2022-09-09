@@ -24,4 +24,39 @@ count_na <- function(.data, .format = "longer") {
     )
 }
 
+#' @title Count Missing Values by group in a data frame
+#' @description `r lifecycle::badge('stable')`
+#'
+#' This function Missing Values by group in a data frame
+#' @inheritParams count_na
+#' @param .vars variables to be counted.
+#' If no variables were provided, the function will count Missing Values for all variables.
+#' @param .group group variable
+#' @export
+count_group_na <- \(
+  .data,
+  .vars = dplyr::everything(),
+  .group,
+  .format = "longer"
+) {
 
+  if (missing(.group)){
+    cli::cli_abort("'.group' variable must be specified")
+  }
+  rlang::enexpr(.group) |>
+    rlang::as_label() -> .group_string
+
+  .data|>
+    dplyr::select({{.vars}}, {{.group}}) |>
+    base::split(.data[[.group_string]]) |>
+    purrr::imap_dfr(
+      ~ count_na(.x, .format = .format) |>
+        dplyr::mutate(
+          {{.group}} := .y)
+    ) |>
+    dplyr::relocate(
+      {{.group}},
+      .after = dplyr::last_col()
+    )
+
+}

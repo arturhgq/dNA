@@ -36,5 +36,20 @@ remotes::install_github("arturhgq/dNA")
 
 ```{r}
 library(dNA)
-count_na(mtcars)
+
+tibble::tibble(
+  var1 = c(1,2,3,4, NA),
+  var2 = c(NA, NA, NaN, 2, 3),
+  group = c(2010,2010,2012,2012, 2012)
+) -> data
+
+count_na(data)
+count_group_na(data, .group = group)
 ```
+
+## Replace NA
+
+```{r}
+replace_na(data)
+```
+

@@ -15,4 +15,10 @@ reference:
   desc:
   contents:
   - count_na
+  - count_group_na
+
+- title: Replace
+  desc:
+  contents:
+  - replace_na
 
