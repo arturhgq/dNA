@@ -59,7 +59,7 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="na">NA<a class="anchor" aria-label="anchor" href="#na"></a>
+<div class="page-header"><h1 id="dna">dNA<a class="anchor" aria-label="anchor" href="#dna"></a>
 </h1></div>
 <!-- badges: start -->
 <p>The goal of NA is to provide useful tools for handling Missing Data.</p>
@@ -75,21 +75,44 @@
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/arturhgq/dNA" class="external-link">dNA</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/count_na.html">count_na</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 11 × 2</span></span>
-<span><span class="co">#&gt;    variable     n</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;    &lt;int&gt;</span></span>
-<span><span class="co">#&gt;  1 mpg          0</span></span>
-<span><span class="co">#&gt;  2 cyl          0</span></span>
-<span><span class="co">#&gt;  3 disp         0</span></span>
-<span><span class="co">#&gt;  4 hp           0</span></span>
-<span><span class="co">#&gt;  5 drat         0</span></span>
-<span><span class="co">#&gt;  6 wt           0</span></span>
-<span><span class="co">#&gt;  7 qsec         0</span></span>
-<span><span class="co">#&gt;  8 vs           0</span></span>
-<span><span class="co">#&gt;  9 am           0</span></span>
-<span><span class="co">#&gt; 10 gear         0</span></span>
-<span><span class="co">#&gt; 11 carb         0</span></span></code></pre></div>
+<span></span>
+<span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  var1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>  var2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NaN</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>  group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2010</span>,<span class="fl">2010</span>,<span class="fl">2012</span>,<span class="fl">2012</span>, <span class="fl">2012</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">data</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/count_na.html">count_na</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 3 × 2</span></span>
+<span><span class="co">#&gt;   variable     n</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;    &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1 var2         3</span></span>
+<span><span class="co">#&gt; 2 var1         1</span></span>
+<span><span class="co">#&gt; 3 group        0</span></span>
+<span><span class="fu"><a href="reference/count_group_na.html">count_group_na</a></span><span class="op">(</span><span class="va">data</span>, .group <span class="op">=</span> <span class="va">group</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 3</span></span>
+<span><span class="co">#&gt;   variable     n group</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;</span></span>
+<span><span class="co">#&gt; 1 var2         2 2010 </span></span>
+<span><span class="co">#&gt; 2 var1         0 2010 </span></span>
+<span><span class="co">#&gt; 3 group        0 2010 </span></span>
+<span><span class="co">#&gt; 4 var1         1 2012 </span></span>
+<span><span class="co">#&gt; 5 var2         1 2012 </span></span>
+<span><span class="co">#&gt; 6 group        0 2012</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="replace-na">Replace NA<a class="anchor" aria-label="anchor" href="#replace-na"></a>
+</h2>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/replace_na.html">replace_na</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 5 × 3</span></span>
+<span><span class="co">#&gt;    var1  var2 group</span></span>
+<span><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1     1     0  2010</span></span>
+<span><span class="co">#&gt; 2     2     0  2010</span></span>
+<span><span class="co">#&gt; 3     3     0  2012</span></span>
+<span><span class="co">#&gt; 4     4     2  2012</span></span>
+<span><span class="co">#&gt; 5     0     3  2012</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -129,6 +152,7 @@
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://CRAN.R-project.org/package=dNA" class="external-link"><img src="https://www.r-pkg.org/badges/version/dNA" alt="CRAN status"></a></li>
 <li><a href="https://app.codecov.io/gh/arturhgq/dNA?branch=master" class="external-link"><img src="https://codecov.io/gh/arturhgq/dNA/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/arturhgq/dNA/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/arturhgq/dNA/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
