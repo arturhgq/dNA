@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(dNA)
+library(dna)
 
-test_check("dNA")
+test_check("dna")
