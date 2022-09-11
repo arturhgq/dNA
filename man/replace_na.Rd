@@ -2,7 +2,7 @@
 % Please edit documentation in R/replace.R
 \name{replace_na}
 \alias{replace_na}
-\title{Replace Missing Values by a value}
+\title{Replace NAs by a value}
 \usage{
 replace_na(.data, ..., .value = 0)
 }
@@ -10,10 +10,19 @@ replace_na(.data, ..., .value = 0)
 \item{.data}{data frame}
 
 \item{...}{variables. If no variables were provided, the function will fill
-in missing values for all variables.}
+in Missing Values for all variables.}
 
-\item{.value}{value for NA be replaced by}
+\item{.value}{value for NAs be replaced by}
 }
 \description{
-Replace Missing Values by a value
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
+
+This function replaces NAs by a value
+}
+\examples{
+   tibble::tibble(
+     var1 = c(1,2,3,4, NA),
+     var2 = c(NA, NA, NaN, 2, 3)
+   ) -> data
+replace_na(data, .value = 0)
 }

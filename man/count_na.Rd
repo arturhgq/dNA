@@ -2,7 +2,7 @@
 % Please edit documentation in R/count.R
 \name{count_na}
 \alias{count_na}
-\title{Count Missing Values in a data frame}
+\title{Count NAs in a data frame}
 \usage{
 count_na(.data, .format = "longer")
 }
@@ -14,5 +14,12 @@ count_na(.data, .format = "longer")
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 
-This function counts Missing Values in a data frame
+This function counts NAs in a data frame
+}
+\examples{
+tibble::tibble(
+var1 = c(1,2,3,4, NA),
+var2 = c(NA, NA, NaN, 2, 3)
+) -> data
+count_na(data)
 }

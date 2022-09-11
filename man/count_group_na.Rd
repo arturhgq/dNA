@@ -2,7 +2,7 @@
 % Please edit documentation in R/count.R
 \name{count_group_na}
 \alias{count_group_na}
-\title{Count Missing Values by group in a data frame}
+\title{Count NAs by group in a data frame}
 \usage{
 count_group_na(.data, .vars = dplyr::everything(), .group, .format = "longer")
 }
@@ -19,5 +19,13 @@ If no variables were provided, the function will count Missing Values for all va
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 
-This function Missing Values by group in a data frame
+This function NAs by group in a data frame
+}
+\examples{
+tibble::tibble(
+var1 = c(1,2,3,4, NA),
+var2 = c(NA, NA, NaN, 2, 3),
+group = c(2010,2010,2012,2012, 2012)
+) -> data
+count_group_na(data, .group = group)
 }
