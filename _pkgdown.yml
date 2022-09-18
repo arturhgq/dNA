@@ -22,3 +22,7 @@ reference:
   contents:
   - replace_na
 
+- title: Fill
+  desc:
+  contents:
+  - fill_by_group
