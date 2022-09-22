@@ -18,6 +18,7 @@ BugReports: https://github.com/arturhgq/dna/issues
 Imports: 
     cli,
     dplyr,
+    glue,
     lifecycle,
     purrr,
     rlang,

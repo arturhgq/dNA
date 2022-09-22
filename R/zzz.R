@@ -1,3 +1,3 @@
 utils::globalVariables(
-  c(".", "n")
+  c(".", "n", "values_collapsed_group", "values")
 )
