@@ -2,9 +2,9 @@
 % Please edit documentation in R/count.R
 \name{count_na}
 \alias{count_na}
-\title{Count NAs in a data frame}
+\title{Count NAs in a data frame for each variable}
 \usage{
-count_na(.data, .format = "longer")
+count_na(.data, format = "longer")
 }
 \arguments{
 \item{.data}{data frame}
@@ -14,7 +14,7 @@ count_na(.data, .format = "longer")
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 
-This function counts NAs in a data frame
+This function counts NAs in a data frame for each variable
 }
 \examples{
 tibble::tibble(

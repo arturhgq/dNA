@@ -1,7 +1,7 @@
-#' @title Count NAs in a data frame
+#' @title Count NAs in a data frame for each variable
 #' @description `r lifecycle::badge('stable')`
 #'
-#' This function counts NAs in a data frame
+#' This function counts NAs in a data frame for each variable
 #' @param .data data frame
 #' @param .format output data frame format ('longer' or 'wider')
 #' @examples
@@ -11,23 +11,25 @@
 #' ) -> data
 #' count_na(data)
 #' @export
-count_na <- function(.data, .format = "longer") {
-  rlang::expr(
-    . |>
-      tidyr::pivot_longer(
-        dplyr::everything(),
-        names_to = "variable",
-        values_to = "n") |>
-      dplyr::arrange(dplyr::desc(n))
-  ) -> .longer
+count_na <- function(.data, format = "longer") {
 
-  is.na(.data) |>
-    tibble::as_tibble() |>
-    purrr::map_df(sum) |>
-    purrr::when(
-      .format == "wider" ~ .,
-      .format == "longer" ~ rlang::eval_tidy(.longer)
+  vars_na = sort(
+    apply(is.na(.data), 2, sum),
+    decreasing = TRUE
+  )
+
+  switch(
+    format,
+    wider = data.frame(
+      rbind(vars_na),
+      row.names = NULL
+    ),
+    longer = data.frame(
+      variable = names(vars_na),
+      n = vars_na,
+      row.names = NULL
     )
+  )
 }
 
 #' @title Count NAs by group in a data frame
