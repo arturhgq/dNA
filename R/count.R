@@ -14,7 +14,7 @@
 count_na <- function(.data, format = "longer") {
 
   vars_na = sort(
-    apply(is.na(.data), 2, sum),
+    colSums(is.na(.data)),
     decreasing = TRUE
   )
 
