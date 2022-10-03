@@ -4,7 +4,7 @@
 \alias{count_group_na}
 \title{Count NAs by group in a data frame}
 \usage{
-count_group_na(.data, .vars = dplyr::everything(), .group, .format = "longer")
+count_group_na(.data, .vars = dplyr::everything(), .group, format = "longer")
 }
 \arguments{
 \item{.data}{data frame}
@@ -14,7 +14,7 @@ If no variables were provided, the function will count Missing Values for all va
 
 \item{.group}{group variable}
 
-\item{.format}{output data frame format ('longer' or 'wider')}
+\item{format}{output data frame format ('longer' or 'wider')}
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}

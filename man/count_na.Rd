@@ -22,4 +22,5 @@ var1 = c(1,2,3,4, NA),
 var2 = c(NA, NA, NaN, 2, 3)
 ) -> data
 count_na(data)
+count_na(data, "wider")
 }

@@ -3,5 +3,6 @@
 export(count_group_na)
 export(count_na)
 export(fill_by_group)
+export(not_na)
 export(replace_na)
 importFrom(lifecycle,deprecated)
