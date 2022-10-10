@@ -51,21 +51,21 @@ This function NAs by group in a data frame"><!-- mathjax --><script src="https:/
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">count_group_na</span><span class="op">(</span><span class="va">.data</span>, .vars <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">.group</span>, format <span class="op">=</span> <span class="st">"longer"</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">count_group_na</span><span class="op">(</span><span class="va">data</span>, vars <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">group</span>, format <span class="op">=</span> <span class="st">"longer"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>.data</dt>
+    <dl><dt>data</dt>
 <dd><p>data frame</p></dd>
 
 
-<dt>.vars</dt>
+<dt>vars</dt>
 <dd><p>variables to be counted.
 If no variables were provided, the function will count Missing Values for all variables.</p></dd>
 
 
-<dt>.group</dt>
+<dt>group</dt>
 <dd><p>group variable</p></dd>
 
 
@@ -73,6 +73,11 @@ If no variables were provided, the function will count Missing Values for all va
 <dd><p>output data frame format ('longer' or 'wider')</p></dd>
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
+    <p>Expected new features
+Allowing more than one group variable.</p>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
@@ -81,8 +86,14 @@ If no variables were provided, the function will count Missing Values for all va
 <span class="r-in"><span>var2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NaN</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2010</span>,<span class="fl">2010</span>,<span class="fl">2012</span>,<span class="fl">2012</span>, <span class="fl">2012</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">data</span></span></span>
-<span class="r-in"><span><span class="fu">count_group_na</span><span class="op">(</span><span class="va">data</span>, .group <span class="op">=</span> <span class="va">group</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in count_na(.x, .format = .format):</span> unused argument (.format = .format)</span>
+<span class="r-in"><span><span class="fu">count_group_na</span><span class="op">(</span><span class="va">data</span>, group <span class="op">=</span> <span class="va">group</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   variable n group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     var2 2  2010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     var1 0  2010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    group 0  2010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     var1 1  2012</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     var2 1  2012</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6    group 0  2012</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
