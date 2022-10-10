@@ -4,15 +4,15 @@
 \alias{count_group_na}
 \title{Count NAs by group in a data frame}
 \usage{
-count_group_na(.data, .vars = dplyr::everything(), .group, format = "longer")
+count_group_na(data, vars = dplyr::everything(), group, format = "longer")
 }
 \arguments{
-\item{.data}{data frame}
+\item{data}{data frame}
 
-\item{.vars}{variables to be counted.
+\item{vars}{variables to be counted.
 If no variables were provided, the function will count Missing Values for all variables.}
 
-\item{.group}{group variable}
+\item{group}{group variable}
 
 \item{format}{output data frame format ('longer' or 'wider')}
 }
@@ -21,11 +21,15 @@ If no variables were provided, the function will count Missing Values for all va
 
 This function NAs by group in a data frame
 }
+\note{
+Expected new features
+Allowing more than one group variable.
+}
 \examples{
 tibble::tibble(
 var1 = c(1,2,3,4, NA),
 var2 = c(NA, NA, NaN, 2, 3),
 group = c(2010,2010,2012,2012, 2012)
 ) -> data
-count_group_na(data, .group = group)
+count_group_na(data, group = group)
 }

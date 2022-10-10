@@ -1,4 +1,4 @@
-#' @title Aren't x missing elements?
+#' @title In x there are no missing elements?
 #' @description `r lifecycle::badge("stable")`
 #' This function indicates which elements are not missing
 #' @param x an \R object to be tested

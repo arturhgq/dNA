@@ -2,7 +2,7 @@
 % Please edit documentation in R/is.R
 \name{not_na}
 \alias{not_na}
-\title{Aren't x missing elements?}
+\title{In x there are no missing elements?}
 \usage{
 not_na(x)
 }

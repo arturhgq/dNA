@@ -4,12 +4,12 @@
 \alias{count_na}
 \title{Count NAs in a data frame for each variable}
 \usage{
-count_na(.data, format = "longer")
+count_na(data, format = "longer")
 }
 \arguments{
-\item{.data}{data frame}
+\item{data}{data frame}
 
-\item{.format}{output data frame format ('longer' or 'wider')}
+\item{format}{output data frame format ('longer' or 'wider')}
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
